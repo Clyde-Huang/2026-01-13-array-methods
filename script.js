@@ -107,7 +107,7 @@ console.log("---------------------------------------------------");
 console.log("indexOf()，搜尋陣列有沒有該內容(取第一個)，有的話就顯示第幾個，無就顯示-1");
 console.log("indexOf(E,N)，E =要輸入元素，N =從第幾個開始找(預設=0=重頭找)");
 let cohort10 = ["張三", "李四", "王五"];
-console.log("cohort10.indexOf(\"王五\"): " + cohort10.indexOf("王五", 1));
+console.log("cohort10.indexOf(\"王五\"): " + cohort10.indexOf("王五"));
 console.log(JSON.stringify(cohort10) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
 console.log("---------------------------------------------------");
 
@@ -144,5 +144,49 @@ console.log("acc：必須寫（累加器）。\ncur：必須寫（當前元素�
 console.log("index：可選。記錄目前迭代到第幾個位置。\narray：可選。呼叫 reduce 的那個原始陣列本身。");
 console.log("---------------------------------------------------");
 
-//reduceRight()
-console.log("反過來算的 reduce() 不常用")
+// reduceRight()
+console.log("reduceRight()，反過來算的 reduce() 不常用")
+console.log("---------------------------------------------------");
+
+// reverse()
+console.log("reverse()，倒轉陣列，倒轉後保留結果");
+let cohort12 = ["張三", "李四", "王五"];
+console.log("cohort12.reverse(): " + cohort12.reverse());
+console.log("cohort12: " + cohort12);
+console.log(JSON.stringify(cohort12) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
+
+// sort()
+console.log("sort()：會直接修改原陣列內容（In-place）。預設採 Unicode 排序。");
+console.log("雖然 [\"張三\", \"李四\", \"王五\"].sort() 後順序剛好不變，但它確實執行了 原地改寫 動作。");
+console.log("---------------------------------------------------");
+
+// toSorted()
+console.log("toSorted()，產生結果會是全新記憶體位置版本的sort()");
+let cohort13 = ["張三", "李四", "王五"];
+let sortedResult = cohort13.toSorted();
+console.log("cohort13.toSorted(): " + cohort13.toSorted());
+console.log("cohort13(原陣列保持不變): " + cohort13);
+// 判斷是否「改變內容」:
+console.log(JSON.stringify(cohort13) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+// 判斷是否為「不同物件/記憶體位置」
+console.log(cohort13 !== sortedResult ? "記憶體位置是否不同：是 (這就是 toSorted 的優點)" : "記憶體位置是否不同：否");
+console.log("即使都是[\"張三\", \"李四\", \"王五\"]，但記憶體位置不同")
+console.log("---------------------------------------------------");
+
+// some(()=>{})
+console.log("some(()=>{})，輸出為 true/false 只要任1符合就true，後面函式有多種配合方式");
+let cohort14 = ["張三", "李四", "王五"];
+console.log("有沒有人姓李，cohort14.some(name => name.startsWith(\"李\")): " + cohort14.some(name => name.startsWith("李")));
+console.log("cohort14: " + cohort14);
+console.log(JSON.stringify(cohort14) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
+
+// every(()=>{})
+console.log("every(()=>{})，輸出為 true/false 全符合就true，後面函式有多種配合方式");
+let cohort15 = ["張三", "李四", "王五"];
+console.log("有沒有都姓李，cohort14.every(name => name.startsWith(\"李\")): " + cohort15.every(name => name.startsWith("李")));
+console.log("全員名字都是 2 個字嗎？: " + cohort15.every(name => name.length === 2));
+console.log("cohort15: " + cohort15);
+console.log(JSON.stringify(cohort15) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
