@@ -58,7 +58,7 @@ console.log("cohort061: " + cohort061);
 console.log("");
 
 let cohort062 = ["張三", "李四", "王五"];
-console.log("cohort062.splice(1, 1,\"錢六\",\"趙七\"): " + cohort062.splice(1, 1,"錢六","趙七"));
+console.log("cohort062.splice(1, 1,\"錢六\",\"趙七\"): " + cohort062.splice(1, 1, "錢六", "趙七"));
 console.log("cohort062: " + cohort062);
 
 console.log("");
@@ -69,7 +69,7 @@ console.log("---------------------------------------------------");
 // slice()
 console.log("slice(S,E)，切陣列，S=重誰開始，E=到誰 不寫就是取到最後，\nE-S=幾個元素 ; S 包含該元素，E 不包");
 let cohort07 = ["張三", "李四", "王五"];
-console.log("cohort07.slice(1,2): " + cohort07.slice(1,2));
+console.log("cohort07.slice(1,2): " + cohort07.slice(1, 2));
 console.log("cohort07: " + cohort07);
 console.log(JSON.stringify(cohort07) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
 console.log("slice()，若都不帶參數就是複製原本 array，因 non-mutating 但被展開運算子取代")
@@ -92,7 +92,7 @@ console.log("---------------------------------------------------");
 // concat()
 console.log("concat()，把元素或陣列等等加入陣列，複製前面內容後加入，建議學展開運算子就好");
 let cohort09 = ["張三", "李四", "王五"];
-console.log("cohort09.concat(\"錢六\",\"趙七\"): " + cohort09.concat("錢六","趙七"));
+console.log("cohort09.concat(\"錢六\",\"趙七\"): " + cohort09.concat("錢六", "趙七"));
 console.log("cohort09: " + cohort09);
 console.log(JSON.stringify(cohort09) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
 
@@ -100,6 +100,49 @@ console.log("");
 
 console.log("cohort09.concat(cohort): " + cohort09.concat(cohort));
 //上下相同
-console.log("[...cohort09,...cohort]: " + [...cohort09,...cohort]);
-
+console.log("[...cohort09,...cohort]: " + [...cohort09, ...cohort]);
 console.log("---------------------------------------------------");
+
+//indexOf()
+console.log("indexOf()，搜尋陣列有沒有該內容(取第一個)，有的話就顯示第幾個，無就顯示-1");
+console.log("indexOf(E,N)，E =要輸入元素，N =從第幾個開始找(預設=0=重頭找)");
+let cohort10 = ["張三", "李四", "王五"];
+console.log("cohort10.indexOf(\"王五\"): " + cohort10.indexOf("王五", 1));
+console.log(JSON.stringify(cohort10) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
+
+//lastIndexOf()
+console.log("lastIndexOf()，倒過來搜尋陣列有沒有該內容(取第一個)，有的話就顯示第幾個，無就顯示-1，剩下參考indexOf()");
+console.log("---------------------------------------------------");
+
+
+// reduce()
+console.log("reduce()，迭代陣列每個元素，並將處理結果傳遞給下一次迭代，最終匯聚成「單一結果」");
+let cohort11 = ["張三", "李四", "王五"];
+// 這裡可以看到迭代的過程：acc 是累加的結果，cur 是當前迭代到的元素
+let result = cohort11.reduce((acc, cur, index) => {
+    console.log(`第 ${index} 次迭代：目前累積為 [${acc}]，當前元素為 [${cur}]`);
+    return acc + " X " + cur;
+});
+console.log("最終匯聚結果(acc +\" X \"+ cur)(整體是一個結果): " + result);
+console.log("cohort11: " + cohort11);
+console.log(JSON.stringify(cohort11) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+
+console.log("");
+
+// (強烈建議)還可以加上 初始值 ，若加上的話 index 由 0 開始算，acc由初始值開始
+let result1 = cohort11.reduce((acc, cur, index) => {
+    console.log(`第 ${index} 次迭代：目前累積為 [${acc}]，當前元素為 [${cur}]`);
+    return acc + " X " + cur;
+}, "錢二");
+console.log("最終匯聚結果(acc +\" X \"+ cur)(整體是一個結果): " + result1);
+
+console.log("");
+
+console.log("array.reduce((acc, cur, index, array) => { ... }, initialValue")
+console.log("acc：必須寫（累加器）。\ncur：必須寫（當前元素）。");
+console.log("index：可選。記錄目前迭代到第幾個位置。\narray：可選。呼叫 reduce 的那個原始陣列本身。");
+console.log("---------------------------------------------------");
+
+//reduceRight()
+console.log("反過來算的 reduce() 不常用")
