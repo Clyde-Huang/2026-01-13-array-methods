@@ -1,5 +1,6 @@
 let cohort = ["張三", "李四", "王五"];
 console.log("cohort init: " + cohort);
+console.log("以下cohortN都是複製此陣列，有不同會重新設變數")
 console.log("---------------------------------------------------");
 
 // shift()
@@ -75,5 +76,30 @@ console.log("slice()，若都不帶參數就是複製原本 array，因 non-muta
 console.log("---------------------------------------------------");
 
 //補充
-console.log("補充: 即使 展開運算子 & slice() 都是複製陣列，但與原先記憶體位置都不同")
-console.log("補充: 觸發splice(任何形式) 後的 array 記憶體位置與原先相同(一模一樣)")
+console.log("補充: 即使 展開運算子 & slice() 都是複製原使陣列，但與原先記憶體位置都不同")
+console.log("補充: 觸發splice(任何形式) 後的 array 記憶體位置與原先相同(一模一樣)(這算是缺點)")
+console.log("註記: 記憶體位置相同，這在現代框架(如 React)中被視為缺點，因為位址不變會導致畫面無法正確偵測變動並更新。");
+console.log("---------------------------------------------------");
+
+// join()
+console.log("join()，元素之間插入(加入)指定的分隔，沒輸入就是預設,");
+let cohort08 = ["張三", "李四", "王五"];
+console.log("cohort08.join(\" X \"): " + cohort08.join(" X "));
+console.log("cohort08: " + cohort08);
+console.log(JSON.stringify(cohort08) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
+
+// concat()
+console.log("concat()，把元素或陣列等等加入陣列，複製前面內容後加入，建議學展開運算子就好");
+let cohort09 = ["張三", "李四", "王五"];
+console.log("cohort09.concat(\"錢六\",\"趙七\"): " + cohort09.concat("錢六","趙七"));
+console.log("cohort09: " + cohort09);
+console.log(JSON.stringify(cohort09) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+
+console.log("");
+
+console.log("cohort09.concat(cohort): " + cohort09.concat(cohort));
+//上下相同
+console.log("[...cohort09,...cohort]: " + [...cohort09,...cohort]);
+
+console.log("---------------------------------------------------");
