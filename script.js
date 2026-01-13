@@ -185,8 +185,33 @@ console.log("---------------------------------------------------");
 // every(()=>{})
 console.log("every(()=>{})，輸出為 true/false 全符合就true，後面函式有多種配合方式");
 let cohort15 = ["張三", "李四", "王五"];
-console.log("有沒有都姓李，cohort14.every(name => name.startsWith(\"李\")): " + cohort15.every(name => name.startsWith("李")));
+console.log("有沒有都姓李，cohort15.every(name => name.startsWith(\"李\")): " + cohort15.every(name => name.startsWith("李")));
 console.log("全員名字都是 2 個字嗎？: " + cohort15.every(name => name.length === 2));
 console.log("cohort15: " + cohort15);
 console.log(JSON.stringify(cohort15) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
 console.log("---------------------------------------------------");
+
+// map(()=>{})
+console.log("map(()=>{})，迭代每個元素加工後回傳「長度相同」的新陣列，產生新記憶體位置。常用在轉換格式");
+let cohort16 = ["張三", "李四", "王五"];
+console.log("把每個元素都加入同學，cohort16.map(name => name+\"同學\"): " + cohort16.map(name => name + "同學"));
+console.log("cohort16: " + cohort16);
+console.log(JSON.stringify(cohort16) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
+
+// filter(()=>{})
+console.log("filter(()=>{})，過濾掉不符合條件的元素，產生新記憶體位置。常用在刪除、過濾");
+let cohort17 = ["張三", "李四", "王五"];
+console.log("列出李姓以外的所有，cohort17.filter(name => !name.startsWith(\"李\")): " + cohort17.filter(name => !name.startsWith("李")))
+console.log("cohort17: " + cohort17);
+console.log(JSON.stringify(cohort17) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
+
+// forEach(()=>{})
+console.log("filter(()=>{})，為陣列中的每個元素執行一次你指定的函式，但它不回傳任何結果（回傳值永遠是 undefined）");
+let cohort18 = ["張三", "李四", "王五"];
+console.log("把每個元素都加入同學，cohort18.forEach(name => name+\"同學\")): " + cohort18.forEach(name => name + "同學")) // undefined
+// 上面那樣只會回傳 undefined
+console.log("cohort18: " + cohort18);
+console.log(JSON.stringify(cohort18) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------"); 
