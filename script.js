@@ -238,21 +238,43 @@ console.log("---------------------------------------------------");
 
 // copyWithin()
 console.log("copyWithin(F,S,E)，能複製陣列中的某些元素，並將它們放到並取同一個陣列指定的位置"
-    +"F=要置換的位置 ( 必填 )，S、E 跟slice一樣");
+    + "F=要置換的位置 ( 必填 )，S、E 跟slice一樣");
 let cohort19 = ["張三", "李四", "王五"];
-console.log("cohort19.copyWithin(2,0,2): "+ cohort19.copyWithin(2,0,2)+"(只能顯示張三，但因原[].length=3)");
+console.log("cohort19.copyWithin(2,0,2): " + cohort19.copyWithin(2, 0, 2) + "(只能顯示張三，但因原[].length=3)");
 console.log("cohort19: " + cohort19);
 console.log(JSON.stringify(cohort19) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
 console.log("---------------------------------------------------");
 
 // fill()
 console.log("fill(F,S,E)，會把陣列中所有元素，置換為指定的值"
-    +"F=要換成啥 ( 必填 ) 只傳入該數值視為全換，S、E 跟slice一樣");
+    + "F=要換成啥 ( 必填 ) 只傳入該數值視為全換，S、E 跟slice一樣");
 let cohort20 = ["張三", "李四", "王五"];
-console.log("cohort20.fill(\"錢二\",0,1): "+ cohort20.fill("錢二",0,1));
+console.log("cohort20.fill(\"錢二\",0,1): " + cohort20.fill("錢二", 0, 1));
 console.log("cohort20: " + cohort20);
 console.log(JSON.stringify(cohort20) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
 console.log("---------------------------------------------------");
 
-//填回報
-//簡單弄一下todolist
+// find(()=>{})
+console.log("find(()=>{})，跌代每個值，並回傳首個函式條件匹配的元素，若全無則回傳undefined");
+let cohort21 = ["張三", "李四", "王五"];
+console.log("cohort21.find(name=>name.startsWith(\"李\")): " + cohort21.find(name => name.startsWith("李")));
+console.log("cohort21: " + cohort21);
+console.log(JSON.stringify(cohort21) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
+
+// findIndex(()=>{})
+console.log("findIndex(()=>{})，跌代每個值，並回傳首個函式條件匹配的元素的位置號碼(所以是數字)，若無則回傳-1");
+let cohort22 = ["張三", "李四", "王五"];
+console.log("cohort22.find(name=>name.startsWith(\"李\")): " + cohort22.findIndex(name => name.startsWith("李")));
+console.log("cohort22: " + cohort22);
+console.log(JSON.stringify(cohort22) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
+
+// includes()
+console.log("includes(E,S)，會判斷陣列中是否包含某個值，如果有包含就回傳 true，否則回傳 false"
+    + "E=找該值( 必填 )，S=起始找的位置");
+let cohort23 = ["張三", "李四", "王五"];
+console.log("cohort23.find(name=>name.startsWith(\"李\")): " + cohort23.includes("王五"));
+console.log("cohort23: " + cohort23);
+console.log(JSON.stringify(cohort23) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
