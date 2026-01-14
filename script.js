@@ -84,7 +84,7 @@ console.log("註記: 記憶體位置相同，這在現代框架(如 React)中被
 console.log("---------------------------------------------------");
 
 // join()
-console.log("join()，元素之間插入(加入)指定的分隔，沒輸入就是預設,");
+console.log("join()，元素之間插入(加入)指定的分隔，沒輸入就是預設","");
 let cohort08 = ["張三", "李四", "王五"];
 console.log("cohort08.join(\" X \"): " + cohort08.join(" X "));
 console.log("cohort08: " + cohort08);
