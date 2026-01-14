@@ -1,6 +1,6 @@
 let cohort = ["張三", "李四", "王五"];
-console.log("cohort init: " + cohort);
-console.log("以下cohortN都是複製此陣列，有不同會重新設變數")
+console.log("cohort 設定: " + cohort);
+console.log("以下cohortN都是複製此陣列，若有不同會舉例會重新設變數")
 console.log("---------------------------------------------------");
 
 // shift()
@@ -44,7 +44,8 @@ console.log(JSON.stringify(cohort05) !== JSON.stringify(cohort) ? "是否改變�
 console.log("---------------------------------------------------");
 
 // splice()
-console.log("splice(start, deleteCount, item1, item2, ...)，\nstart=第1輸入數字(必填)重誰開始刪，\ndeleteCount=第2數代表刪除到哪，不填就是後面全刪光，\n後面依序插入需要的元素");
+console.log("splice(start, deleteCount, item1, item2, ...)，" +
+    "\nstart=第1輸入數字(必填)重誰開始刪，\ndeleteCount=第2數代表刪除到哪，不填就是後面全刪光，\n後面依序插入需要的元素");
 let cohort06 = ["張三", "李四", "王五"];
 console.log("cohort06.splice(1): " + cohort06.splice(1));
 console.log("cohort06: " + cohort06);
@@ -194,7 +195,8 @@ console.log("---------------------------------------------------");
 // map(()=>{})
 console.log("map(()=>{})，迭代每個元素加工後回傳「長度相同」的新陣列，產生新記憶體位置。常用在轉換格式");
 let cohort16 = ["張三", "李四", "王五"];
-console.log("把每個元素都加入同學，cohort16.map(name => name+\"同學\"): " + cohort16.map(name => name + "同學"));
+console.log("把每個元素都加入同學，cohort16.map(name => name+\"同學\"): "
+    + cohort16.map(name => name + "同學"));
 console.log("cohort16: " + cohort16);
 console.log(JSON.stringify(cohort16) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
 console.log("---------------------------------------------------");
@@ -214,4 +216,43 @@ console.log("把每個元素都加入同學，cohort18.forEach(name => name+\"�
 // 上面那樣只會回傳 undefined
 console.log("cohort18: " + cohort18);
 console.log(JSON.stringify(cohort18) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
-console.log("---------------------------------------------------"); 
+console.log("---------------------------------------------------");
+
+// mapVSforeach
+const methodDiff = {
+    map: {
+        回傳值: "一個全新的陣列",
+        主要目的: "資料轉換 (Transformation)",
+        鏈結能力: true,
+        原始陣列: "保持不變 (Immutable)"
+    },
+    forEach: {
+        回傳值: "undefined",
+        主要目的: "執行副作用 (Side Effects)",
+        鏈結能力: false,
+        原始陣列: "常用於修改原陣列"
+    }
+};
+console.table(methodDiff);
+console.log("---------------------------------------------------");
+
+// copyWithin()
+console.log("copyWithin(F,S,E)，能複製陣列中的某些元素，並將它們放到並取同一個陣列指定的位置"
+    +"F=要置換的位置 ( 必填 )，S、E 跟slice一樣");
+let cohort19 = ["張三", "李四", "王五"];
+console.log("cohort19.copyWithin(2,0,2): "+ cohort19.copyWithin(2,0,2)+"(只能顯示張三，但因原[].length=3)");
+console.log("cohort19: " + cohort19);
+console.log(JSON.stringify(cohort19) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
+
+// fill()
+console.log("fill(F,S,E)，會把陣列中所有元素，置換為指定的值"
+    +"F=要換成啥 ( 必填 ) 只傳入該數值視為全換，S、E 跟slice一樣");
+let cohort20 = ["張三", "李四", "王五"];
+console.log("cohort20.fill(\"錢二\",0,1): "+ cohort20.fill("錢二",0,1));
+console.log("cohort20: " + cohort20);
+console.log(JSON.stringify(cohort20) !== JSON.stringify(cohort) ? "是否改變原陣列（ mutate ）：是" : "是否改變原陣列（ mutate ）：否");
+console.log("---------------------------------------------------");
+
+//填回報
+//簡單弄一下todolist
